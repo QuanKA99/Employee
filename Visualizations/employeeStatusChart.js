@@ -65,6 +65,7 @@ function processData(data) {
     const dataMap = {};
 
     data.forEach(item => {
+        console.log(item);
         const job_level = item["employee.job_level"].value;
         const employee_status = item["employee.employee_status"].value;
 
@@ -196,4 +197,4 @@ function addCategoryHeaders(svg, x, y, data) {
 }
 
 // Register visualisation on Looker
-looker.plugins.Visualisation.add(visObject);
+looker.plugins.Visualisations.add(visObject);

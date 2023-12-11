@@ -18,7 +18,7 @@ constant: VIS_ID {
 
 visualization: {
   id: "Employee_status"
-  file: "Visualization/employeeStatusChart.js"
+  file: "Visualizations/employeeStatusChart.js"
   label: "Employee Status"
   dependencies: ["https://code.jquery.com/jquery-2.2.4.min.js","https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore-min.js","https://cdnjs.cloudflare.com/ajax/libs/d3/4.13.0/d3.js"]
 }
