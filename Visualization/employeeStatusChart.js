@@ -65,8 +65,8 @@ function processData(data) {
     const dataMap = {};
 
     data.forEach(item => {
-        const job_level = item.["employee.job_level"].value;
-        const employee_status = item.["employee.employee_status"].value;
+        const job_level = item["employee.job_level"].value;
+        const employee_status = item["employee.employee_status"].value;
 
         if (!dataMap[job_level]) {
             dataMap[job_level] = {
