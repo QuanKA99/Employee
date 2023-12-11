@@ -196,5 +196,6 @@ function addCategoryHeaders(svg, x, y, data) {
     addCategoryLabel(1 - data[0].leavers / total, 0, 'Leavers');
 }
 
+
 // Register visualisation on Looker
 looker.plugins.visualizations.add(visObject);
