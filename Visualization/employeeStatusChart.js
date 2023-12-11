@@ -126,7 +126,7 @@ function drawBars(svg, x, y, data) {
         .attr("class", "leavers-bar")
         .attr("style", "fill: #e74c3c;")
         .attr("x", d => x(1 - d.leavers / total))
-        .attr("y", d => y(d.job_level))
+        .attr("y", d => y(d["employee.job_level"]))
         .attr("width", d => x(d.leavers / total))
         .attr("height", y.bandwidth() / 2);
 }
