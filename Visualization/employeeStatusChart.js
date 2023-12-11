@@ -196,4 +196,4 @@ function addCategoryHeaders(svg, x, y, data) {
 }
 
 // Register visualisation on Looker
-looker.plugins.visualisation.add(visObject);
+looker.plugins.Visualisation.add(visObject);
