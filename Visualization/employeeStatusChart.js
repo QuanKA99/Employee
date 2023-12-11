@@ -89,7 +89,7 @@ function processData(data) {
 function setDomains(x, y, data) {
     const total = d3.sum(data, d => d.headcount + d.new_hires + d.leavers);
     x.domain([0, 1]);
-    y.domain(data.map(d => d.job_level));
+    y.domain(data.map(d => d["employee.job_level"]));
 }
 
 
@@ -104,7 +104,7 @@ function drawBars(svg, x, y, data) {
         .attr("class", "new-hires-bar")
         .attr("style", "fill: #D0F0C0;")
         .attr("x", 0)
-        .attr("y", d => y(d.job_level))
+        .attr("y", d => y(d["employee.job_level"]))
         .attr("width", d => x(d.new_hires / total))
         .attr("height", y.bandwidth() / 2);
 
@@ -115,7 +115,7 @@ function drawBars(svg, x, y, data) {
         .attr("class", "headcount-bar")
         .attr("style", "fill: #8fa9dc;")
         .attr("x", d => x(0.5 - (d.headcount / total) / 2))
-        .attr("y", d => y(d.job_level))
+        .attr("y", d => y(d["employee.job_level"]))
         .attr("width", d => x(d.headcount / total))
         .attr("height", y.bandwidth() / 2);
 
@@ -139,7 +139,7 @@ function addLabels(svg, x, y, data) {
         selection.data().forEach(d => {
             svg.append('text')
                 .attr('x', x(xOffset(d)) + x(widthFactor(d)) / 2)
-                .attr('y', y(d.job_level) + y.bandwidth() / 4)
+                .attr('y', y(d["employee.job_level"]) + y.bandwidth() / 4)
                 .attr('font-size', '12px')
                 .attr('text-anchor', 'middle')
                 .text(((d[property] / total) * 100).toFixed(1) + '%');
@@ -163,7 +163,7 @@ function addCategoryHeaders(svg, x, y, data) {
         .attr("fill", "none")
         .attr("stroke", "#8fa9dc")
         .attr("x", -120 + gap)
-        .attr("y", d => y(d.job_level))
+        .attr("y", d => y(d["employee.job_level"]))
         .attr("width", 120 - 2 * gap)
         .attr("height", y.bandwidth() / 2);
 
@@ -172,11 +172,11 @@ function addCategoryHeaders(svg, x, y, data) {
         .enter().append("text")
         .attr("class", "category-label")
         .attr("x", -60)
-        .attr("y", d => y(d.job_level) + y.bandwidth() / 4)
+        .attr("y", d => y(d["employee.job_level"]) + y.bandwidth() / 4)
         .attr("dy", ".35em")
         .attr("text-anchor", "middle")
         .attr("style", "fill: black;")
-        .text(d => d.job_level);
+        .text(d => d["employee.job_level"]);
 
     function addCategoryLabel(xOffset, widthFactor, label) {
         svg.append('text')
